@@ -29,5 +29,17 @@ export class Servidor{ //Se agrega export para ponerlo disponible a todo el proy
         this.app.get('/API/v1/viernes', function (req, res) {
             res.send('Hello World')
         })
+        this.app.get('/API/v1/viernes', function (req, res) {
+            res.send('Hello World')
+        })
+        this.app.get('/API/v1/viernes', function (req, res) {
+            res.send('Hello World')
+        })
+        this.app.get('/API/v1/viernes', function (req, res) {
+            res.send('Hello World')
+        })
+        this.app.get('/API/v1/viernes', function (req, res) {
+            res.send('Hello World')
+        })
     }
 }
