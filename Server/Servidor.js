@@ -5,6 +5,9 @@
 // Mejor usar la siguiente
 import express from 'express'
 
+// Importando las RUTAS
+import { rutas } from '../routes/rutas.js'
+
 // Programo lo clase servidor, internamente tiene un constructor
 // En el constructor se definen los atributos de la clase, solo en JS esto sucede
 export class Servidor{ //Se agrega export para ponerlo disponible a todo el proyecto
@@ -26,20 +29,6 @@ export class Servidor{ //Se agrega export para ponerlo disponible a todo el proy
 
     // ENRUTAR PETICIONES (CLASIFICARLAS)
     enrutarPeticiones() {
-        this.app.get('/API/v1/viernes', function (req, res) {
-            res.send('Hello World')
-        })
-        this.app.get('/API/v1/viernes', function (req, res) {
-            res.send('Hello World')
-        })
-        this.app.get('/API/v1/viernes', function (req, res) {
-            res.send('Hello World')
-        })
-        this.app.get('/API/v1/viernes', function (req, res) {
-            res.send('Hello World')
-        })
-        this.app.get('/API/v1/viernes', function (req, res) {
-            res.send('Hello World')
-        })
+        this.app.use('/',rutas)        
     }
 }
