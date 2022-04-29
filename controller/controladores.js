@@ -61,16 +61,17 @@ export function editar(request,response){
     }
 }
 
-export function eliminar(request,response){try{
-    response.status(200).json({
-        mensaje: "Exito eliminando el registro",
-        estado: true
-    })
-}catch(error){
-    response.status(400).json({
-        mensaje: "Algo salió mal",
-        data: [],
-        estado: false
-    })
-}
+export function eliminar(request,response){
+    try {
+        response.status(200).json({
+            mensaje: "Exito eliminando el registro",
+            estado: true
+        })
+    } catch (error) {
+        response.status(400).json({
+            mensaje: "Algo salió mal",
+            data: [],
+            estado: false
+        })
+    }
 }

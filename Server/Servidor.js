@@ -8,13 +8,18 @@ import express from 'express'
 // Importando las RUTAS
 import { rutas } from '../routes/rutas.js'
 
+// Importar la función de conexión
+import { conectar } from '../database/conexion.js'
+
 // Programo lo clase servidor, internamente tiene un constructor
 // En el constructor se definen los atributos de la clase, solo en JS esto sucede
-export class Servidor{ //Se agrega export para ponerlo disponible a todo el proyecto
+export class Servidor { //Se agrega export para ponerlo disponible a todo el proyecto
     // Cuando se despierte el servidor se ejecutara el constructor
-    constructor(){
+    constructor() {
         // const app = express() Así sería antes, ahora:
         this.app = express() //app es un atributo
+        this.conectarConBD() //Antes de llamar y enrutar se debe conectar con BD
+        this.llamarAuxiliares()
         this.enrutarPeticiones()
     }
 
@@ -29,6 +34,14 @@ export class Servidor{ //Se agrega export para ponerlo disponible a todo el proy
 
     // ENRUTAR PETICIONES (CLASIFICARLAS)
     enrutarPeticiones() {
-        this.app.use('/',rutas)        
+        this.app.use('/', rutas)
+    }
+
+    llamarAuxiliares() {//middleware
+        this.app.use(express.json())
+    }
+
+    conectarConBD(){
+        conectar()
     }
 }
