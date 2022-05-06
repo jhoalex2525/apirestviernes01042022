@@ -1,5 +1,5 @@
 // En el controlador se importan los servicios
-import { ServicioHabitacion } from "../services/ServicioHabitacion"
+import { ServicioHabitacion } from "../services/ServicioHabitacion.js"
 
 export class Controlador {
 

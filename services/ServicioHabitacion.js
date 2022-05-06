@@ -1,49 +1,29 @@
 // Importamos el modelo de datos
-import { modeloHabitacion } from "../models/habitacionModelo";
+import { modeloHabitacion } from "../models/habitacionModelo.js";
 
-class ServicioHabitacion{
+export class ServicioHabitacion{
     constructor(){}
 
     async buscarTodos(){
-        try{
-            let habitaciones=await modeloHabitacion.find()
-            return habitaciones
-        }catch(error){
-            console.log("Ha fallado la busqueda "+error)
-        }
+        let habitaciones=await modeloHabitacion.find()
+        return habitaciones        
     }
     
     async buscarPorId(id){
-        try{
-            let habitacion=await modeloHabitacion.findById()
-            return habitacion
-        }catch(error){
-            console.log("Falló la busqueda por id "+error)
-        }
+        let habitacion=await modeloHabitacion.findById()
+        return habitacion
     }
     
     async registrar(datosPeticion){
-        try{
-            let habitacionARegistrar=new modeloHabitacion(datosPeticion)
-            return(await habitacionARegistrar.save())
-        }catch(error){
-            console.log("Error registrando "+error)
-        }
+        let habitacionARegistrar=new modeloHabitacion(datosPeticion)
+        return(await habitacionARegistrar.save())
     }
 
     async editar(id,datosPeticion){
-        try{
-            return(await modeloHabitacion.findByIdAndUpdate(id,datosPeticion))
-        }catch(error){
-            console.log("Fallo en la edicion "+error)
-        }
+        return(await modeloHabitacion.findByIdAndUpdate(id,datosPeticion))
     }
 
     async eliminar(id){
-        try{
-            return(await modeloHabitacion.findByIdAndDelete())
-        }catch(error){
-            console.log("Fallo el eliminar "+error)
-        }
+        return(await modeloHabitacion.findByIdAndDelete())
     }
 }

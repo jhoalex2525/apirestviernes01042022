@@ -1,5 +1,5 @@
 // Importamos el modelo de datos
-import { modeloReserva } from "../models/reservaModelo"
+import { modeloReserva } from "../models/reservaModelo.js"
 
 class ServicioReserva{
     constructor(){}
